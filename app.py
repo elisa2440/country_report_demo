@@ -406,9 +406,8 @@ app.layout = html.Div(children=[
     html.Div([
         html.Div(dcc.Graph(id='atlas_probes')),
         html.Div(style="width: 200px, background-color: blue"),
-        html.Div([html.P('Recomendacion de Redes para instalar sondas'),
-        html.Div(id='deploy_atlas')]),
-
+        #html.Div([html.P('Recomendacion de Redes para instalar sondas'),
+        html.Div(dcc.Graph(id="deploy_atlas")),
         html.Div(dcc.Graph(id='pings')),
         #html.Div(html.Table(id='deploy_atlas', title='Redes donde se recomienda instalar sondas'))
     ], style={'display': 'flex'}),
@@ -513,7 +512,7 @@ def dns(country):
     return [line_fig3,line_fig2, fig, bar_fig]
 
 @app.callback([Output(component_id='atlas_probes', component_property='figure'),
-               Output(component_id='deploy_atlas', component_property='children'),
+               Output(component_id='deploy_atlas', component_property='figure'),
                Output(component_id='pings', component_property='figure'),
                Output(component_id='hops', component_property='figure')],
               [Input(component_id='input-type', component_property='value')])
@@ -542,12 +541,45 @@ def atlas(country):
     deploy_atlas_pais = deploy_atlas[deploy_atlas['Location (country)'] == pais]
     rank_df = deploy_atlas_pais[deploy_atlas_pais['asn_name'].notna()]
     rank_df['asn'] = rank_df['asn'].astype('int64')
+    headerColor = 'grey'
+    rowEvenColor = 'lightgrey'
+    rowOddColor = 'white'
     if rank_df.empty:
         #tabla = [html.Tr([html.Th(col) for col in deploy_atlas_pais[['ASN']].columns])] + [html.Tr([html.Td(deploy_atlas_pais[['ASN']].iloc[i][col]) for col in deploy_atlas_pais[['ASN']].columns])for i in range(len(deploy_atlas_pais[['ASN']].head(7)) - 1)]
-        tabla = dbc.Table.from_dataframe(deploy_atlas_pais[['ASN']].head(7), striped=True, bordered=True, hover=True)
+        #tabla = dbc.Table.from_dataframe(deploy_atlas_pais[['ASN']].head(7), striped=True, bordered=True, hover=True)
+        values_th = ['ASN']
+        values_tr = [deploy_atlas_pais.ASN]
+        long = 7
+        columnorder = [1]
+        columnwidth = [30]
     else:
-        tabla = dbc.Table.from_dataframe(df = rank_df[['asn', 'asn_name']], striped=True, bordered=True, size='md')
-        #tabla = [html.Tr([html.Th(col) for col in notna[['asn','asn_name']].columns]) ] + [html.Tr([html.Td(notna[['asn','asn_name']].iloc[i][col]) for col in notna[['asn','asn_name']].columns]) for i in range(len(notna[['asn','asn_name']])-1)]
+        #tabla = dbc.Table.from_dataframe(df = rank_df[['asn', 'asn_name']], striped=True, bordered=True, size='md')
+        #tabla = [html.Tr([html.Th(col) for col in rank_df[['asn','asn_name']].columns]) ] + [html.Tr([html.Td(rank_df[['asn','asn_name']].iloc[i][col]) for col in rank_df[['asn','asn_name']].columns]) for i in range(len(rank_df[['asn','asn_name']])-1)]
+        if len(rank_df) > 7:
+            rank_df = rank_df.iloc[0:8]
+        values_th = ['ASN', 'Holder']
+        values_tr = [rank_df.asn, rank_df.asn_name]
+        long = len(rank)
+        columnorder = [1, 2]
+        columnwidth = [30, 120]
+
+    tabla_fig = go.Figure(data=
+    [go.Table(
+        columnorder=columnorder,
+        columnwidth=columnwidth,
+        header=dict(values=values_th,
+                    line_color='darkslategray',
+                    fill_color=headerColor,
+                    align=['left', 'center'],
+                    font=dict(color='white', size=12)),
+        cells=dict(
+            values=values_tr,
+            line_color='darkslategray',
+            fill_color=[[rowOddColor, rowEvenColor] * long],
+            align=['left', 'center']
+        ))
+    ])
+    tabla_fig.update_layout(title_text='Recomendacion de Redes para instalar sondas', width=500)
 
     tr_pais = pd.read_csv("tr_src_colombia.csv")
     tr_pais.drop_duplicates(['src', 'dest'], inplace=True)
@@ -588,7 +620,7 @@ def atlas(country):
     sankey_fig.update_layout(title_text="RTT promedio desde "+country+" a la region", font_size=12, width=1200, height=700)
 
 
-    return [fig, tabla,sankey_fig, box_fig ]
+    return [fig, tabla_fig,sankey_fig, box_fig ]
 
 @app.callback([Output(component_id='manrs_ready', component_property='figure')],
               [Input(component_id='input-type', component_property='value')])
