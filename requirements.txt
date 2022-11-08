@@ -1,0 +1,9 @@
+dash==2.6.1
+pandas==1.2.4
+plotly==5.9.0
+requests==2.25.1
+ripe==0.0.4
+ripe.atlas.cousteau==1.5.1
+gunicorn
+dash-tools
+ipaddress==1.0.23
