@@ -1,0 +1,343 @@
+categoria,gestion,pais,region,cantidad
+nano,GestiÃ³n de LACNIC,Honduras,America Central,4.0
+nano,GestiÃ³n de LACNIC,Costa Rica,America Central,8.0
+nano,GestiÃ³n de LACNIC,Panama,America Central,6.0
+nano,GestiÃ³n de LACNIC,Guatemala,America Central,5.0
+nano,GestiÃ³n de LACNIC,El Salvador,America Central,7.0
+nano,GestiÃ³n de LACNIC,Nicaragua,America Central,2.0
+nano,GestiÃ³n de LACNIC,Todo,America Central,32.0
+nano,GestiÃ³n de los NIRs,Mexico,America del Norte,8.0
+nano,GestiÃ³n de los NIRs,Todo,America del Norte,8.0
+nano,GestiÃ³n de LACNIC,Argentina,America del Sur,76.0
+nano,GestiÃ³n de LACNIC,Colombia,America del Sur,37.0
+nano,GestiÃ³n de LACNIC,Chile,America del Sur,23.0
+nano,GestiÃ³n de LACNIC,Ecuador,America del Sur,10.0
+nano,GestiÃ³n de LACNIC,Venezuela,America del Sur,21.0
+nano,GestiÃ³n de LACNIC,Peru,America del Sur,14.0
+nano,GestiÃ³n de LACNIC,Paraguay,America del Sur,6.0
+nano,GestiÃ³n de LACNIC,Bolivia,America del Sur,3.0
+nano,GestiÃ³n de LACNIC,Uruguay,America del Sur,1.0
+nano,GestiÃ³n de LACNIC,Todo,America del Sur,191.0
+nano,GestiÃ³n de los NIRs,Brasil,America del Sur,165.0
+nano,GestiÃ³n de los NIRs,Todo,America del Sur,165.0
+nano,GestiÃ³n de LACNIC,Republica Dominicana,Caribe,4.0
+nano,GestiÃ³n de LACNIC,Belice,Caribe,2.0
+nano,GestiÃ³n de LACNIC,Guyana,Caribe,1.0
+nano,GestiÃ³n de LACNIC,Todo,Caribe,7.0
+nano,GestiÃ³n de LACNIC,Todo,Todo,230.0
+nano,GestiÃ³n de los NIRs,Todo,Todo,173.0
+nano,Todo,Todo,Todo,403.0
+micro,GestiÃ³n de LACNIC,Honduras,America Central,54.0
+micro,GestiÃ³n de LACNIC,Costa Rica,America Central,39.0
+micro,GestiÃ³n de LACNIC,Panama,America Central,31.0
+micro,GestiÃ³n de LACNIC,Guatemala,America Central,27.0
+micro,GestiÃ³n de LACNIC,El Salvador,America Central,16.0
+micro,GestiÃ³n de LACNIC,Nicaragua,America Central,11.0
+micro,GestiÃ³n de LACNIC,Todo,America Central,178.0
+micro,GestiÃ³n de LACNIC,Estados Unidos,America del Norte,1.0
+micro,GestiÃ³n de LACNIC,Todo,America del Norte,1.0
+micro,GestiÃ³n de los NIRs,Mexico,America del Norte,218.0
+micro,GestiÃ³n de los NIRs,Todo,America del Norte,218.0
+micro,GestiÃ³n de LACNIC,Argentina,America del Sur,703.0
+micro,GestiÃ³n de LACNIC,Colombia,America del Sur,95.0
+micro,GestiÃ³n de LACNIC,Chile,America del Sur,174.0
+micro,GestiÃ³n de LACNIC,Ecuador,America del Sur,128.0
+micro,GestiÃ³n de LACNIC,Venezuela,America del Sur,70.0
+micro,GestiÃ³n de LACNIC,Peru,America del Sur,76.0
+micro,GestiÃ³n de LACNIC,Paraguay,America del Sur,58.0
+micro,GestiÃ³n de LACNIC,Bolivia,America del Sur,11.0
+micro,GestiÃ³n de LACNIC,Uruguay,America del Sur,5.0
+micro,GestiÃ³n de LACNIC,Todo,America del Sur,1.32
+micro,GestiÃ³n de los NIRs,Brasil,America del Sur,6.35
+micro,GestiÃ³n de los NIRs,Todo,America del Sur,6.35
+micro,GestiÃ³n de LACNIC,Republica Dominicana,Caribe,49.0
+micro,GestiÃ³n de LACNIC,Belice,Caribe,21.0
+micro,GestiÃ³n de LACNIC,Curazao,Caribe,6.0
+micro,GestiÃ³n de LACNIC,Trinidad y Tobago,Caribe,4.0
+micro,GestiÃ³n de LACNIC,Haiti,Caribe,2.0
+micro,GestiÃ³n de LACNIC,Guyana,Caribe,4.0
+micro,GestiÃ³n de LACNIC,Cuba,Caribe,1.0
+micro,GestiÃ³n de LACNIC,San Martin,Caribe,3.0
+micro,GestiÃ³n de LACNIC,Guyana Francesa,Caribe,5.0
+micro,GestiÃ³n de LACNIC,Bonaire,Caribe,3.0
+micro,GestiÃ³n de LACNIC,Suriname,Caribe,3.0
+micro,GestiÃ³n de LACNIC,Todo,Caribe,101.0
+micro,GestiÃ³n de LACNIC,Todo,Todo,1.6
+micro,GestiÃ³n de los NIRs,Todo,Todo,6.568
+micro,Todo,Todo,Todo,8.168
+small,GestiÃ³n de LACNIC,Honduras,America Central,18.0
+small,GestiÃ³n de LACNIC,Costa Rica,America Central,23.0
+small,GestiÃ³n de LACNIC,Panama,America Central,11.0
+small,GestiÃ³n de LACNIC,Guatemala,America Central,13.0
+small,GestiÃ³n de LACNIC,El Salvador,America Central,8.0
+small,GestiÃ³n de LACNIC,Nicaragua,America Central,3.0
+small,GestiÃ³n de LACNIC,Todo,America Central,76.0
+small,GestiÃ³n de los NIRs,Mexico,America del Norte,35.0
+small,GestiÃ³n de los NIRs,Todo,America del Norte,35.0
+small,GestiÃ³n de LACNIC,Argentina,America del Sur,132.0
+small,GestiÃ³n de LACNIC,Colombia,America del Sur,44.0
+small,GestiÃ³n de LACNIC,Chile,America del Sur,39.0
+small,GestiÃ³n de LACNIC,Ecuador,America del Sur,38.0
+small,GestiÃ³n de LACNIC,Venezuela,America del Sur,28.0
+small,GestiÃ³n de LACNIC,Peru,America del Sur,25.0
+small,GestiÃ³n de LACNIC,Paraguay,America del Sur,6.0
+small,GestiÃ³n de LACNIC,Bolivia,America del Sur,10.0
+small,GestiÃ³n de LACNIC,Uruguay,America del Sur,3.0
+small,GestiÃ³n de LACNIC,Todo,America del Sur,325.0
+small,GestiÃ³n de los NIRs,Brasil,America del Sur,1.442
+small,GestiÃ³n de los NIRs,Todo,America del Sur,1.442
+small,GestiÃ³n de LACNIC,Republica Dominicana,Caribe,56.0
+small,GestiÃ³n de LACNIC,Belice,Caribe,2.0
+small,GestiÃ³n de LACNIC,Curazao,Caribe,4.0
+small,GestiÃ³n de LACNIC,Trinidad y Tobago,Caribe,5.0
+small,GestiÃ³n de LACNIC,Haiti,Caribe,1.0
+small,GestiÃ³n de LACNIC,Guyana,Caribe,2.0
+small,GestiÃ³n de LACNIC,Cuba,Caribe,2.0
+small,GestiÃ³n de LACNIC,San Martin,Caribe,2.0
+small,GestiÃ³n de LACNIC,Bonaire,Caribe,2.0
+small,GestiÃ³n de LACNIC,Aruba,Caribe,1.0
+small,GestiÃ³n de LACNIC,Todo,Caribe,77.0
+small,GestiÃ³n de LACNIC,Todo,Todo,478.0
+small,GestiÃ³n de los NIRs,Todo,Todo,1.477
+small,Todo,Todo,Todo,1.955
+medium,GestiÃ³n de LACNIC,Honduras,America Central,7.0
+medium,GestiÃ³n de LACNIC,Costa Rica,America Central,2.0
+medium,GestiÃ³n de LACNIC,Panama,America Central,2.0
+medium,GestiÃ³n de LACNIC,Guatemala,America Central,5.0
+medium,GestiÃ³n de LACNIC,El Salvador,America Central,1.0
+medium,GestiÃ³n de LACNIC,Nicaragua,America Central,4.0
+medium,GestiÃ³n de LACNIC,Todo,America Central,21.0
+medium,GestiÃ³n de los NIRs,Mexico,America del Norte,16.0
+medium,GestiÃ³n de los NIRs,Todo,America del Norte,16.0
+medium,GestiÃ³n de LACNIC,Argentina,America del Sur,40.0
+medium,GestiÃ³n de LACNIC,Colombia,America del Sur,8.0
+medium,GestiÃ³n de LACNIC,Chile,America del Sur,4.0
+medium,GestiÃ³n de LACNIC,Ecuador,America del Sur,4.0
+medium,GestiÃ³n de LACNIC,Venezuela,America del Sur,4.0
+medium,GestiÃ³n de LACNIC,Peru,America del Sur,2.0
+medium,GestiÃ³n de LACNIC,Paraguay,America del Sur,1.0
+medium,GestiÃ³n de LACNIC,Bolivia,America del Sur,3.0
+medium,GestiÃ³n de LACNIC,Uruguay,America del Sur,1.0
+medium,GestiÃ³n de LACNIC,Todo,America del Sur,67.0
+medium,GestiÃ³n de los NIRs,Brasil,America del Sur,130.0
+medium,GestiÃ³n de los NIRs,Todo,America del Sur,130.0
+medium,GestiÃ³n de LACNIC,Republica Dominicana,Caribe,1.0
+medium,GestiÃ³n de LACNIC,Belice,Caribe,2.0
+medium,GestiÃ³n de LACNIC,Curazao,Caribe,2.0
+medium,GestiÃ³n de LACNIC,Trinidad y Tobago,Caribe,1.0
+medium,GestiÃ³n de LACNIC,Haiti,Caribe,2.0
+medium,GestiÃ³n de LACNIC,Guyana,Caribe,1.0
+medium,GestiÃ³n de LACNIC,San Martin,Caribe,1.0
+medium,GestiÃ³n de LACNIC,Guyana Francesa,Caribe,1.0
+medium,GestiÃ³n de LACNIC,Todo,Caribe,11.0
+medium,GestiÃ³n de LACNIC,Todo,Todo,99.0
+medium,GestiÃ³n de los NIRs,Todo,Todo,146.0
+medium,Todo,Todo,Todo,245.0
+large,GestiÃ³n de LACNIC,Honduras,America Central,2.0
+large,GestiÃ³n de LACNIC,Costa Rica,America Central,3.0
+large,GestiÃ³n de LACNIC,Panama,America Central,1.0
+large,GestiÃ³n de LACNIC,El Salvador,America Central,1.0
+large,GestiÃ³n de LACNIC,Nicaragua,America Central,1.0
+large,GestiÃ³n de LACNIC,Todo,America Central,8.0
+large,GestiÃ³n de LACNIC,Estados Unidos,America del Norte,1.0
+large,GestiÃ³n de LACNIC,Todo,America del Norte,1.0
+large,GestiÃ³n de los NIRs,Mexico,America del Norte,6.0
+large,GestiÃ³n de los NIRs,Todo,America del Norte,6.0
+large,GestiÃ³n de LACNIC,Argentina,America del Sur,7.0
+large,GestiÃ³n de LACNIC,Colombia,America del Sur,10.0
+large,GestiÃ³n de LACNIC,Chile,America del Sur,4.0
+large,GestiÃ³n de LACNIC,Ecuador,America del Sur,4.0
+large,GestiÃ³n de LACNIC,Venezuela,America del Sur,1.0
+large,GestiÃ³n de LACNIC,Peru,America del Sur,2.0
+large,GestiÃ³n de LACNIC,Paraguay,America del Sur,1.0
+large,GestiÃ³n de LACNIC,Bolivia,America del Sur,3.0
+large,GestiÃ³n de LACNIC,Uruguay,America del Sur,1.0
+large,GestiÃ³n de LACNIC,Todo,America del Sur,33.0
+large,GestiÃ³n de los NIRs,Brasil,America del Sur,27.0
+large,GestiÃ³n de los NIRs,Todo,America del Sur,27.0
+large,GestiÃ³n de LACNIC,Belice,Caribe,1.0
+large,GestiÃ³n de LACNIC,Curazao,Caribe,1.0
+large,GestiÃ³n de LACNIC,Haiti,Caribe,1.0
+large,GestiÃ³n de LACNIC,Cuba,Caribe,1.0
+large,GestiÃ³n de LACNIC,Suriname,Caribe,1.0
+large,GestiÃ³n de LACNIC,Aruba,Caribe,1.0
+large,GestiÃ³n de LACNIC,Todo,Caribe,6.0
+large,GestiÃ³n de LACNIC,Todo,Todo,48.0
+large,GestiÃ³n de los NIRs,Todo,Todo,33.0
+large,Todo,Todo,Todo,81.0
+x large,GestiÃ³n de LACNIC,Panama,America Central,2.0
+x large,GestiÃ³n de LACNIC,Guatemala,America Central,1.0
+x large,GestiÃ³n de LACNIC,El Salvador,America Central,1.0
+x large,GestiÃ³n de LACNIC,Todo,America Central,4.0
+x large,GestiÃ³n de los NIRs,Mexico,America del Norte,7.0
+x large,GestiÃ³n de los NIRs,Todo,America del Norte,7.0
+x large,GestiÃ³n de LACNIC,Argentina,America del Sur,6.0
+x large,GestiÃ³n de LACNIC,Colombia,America del Sur,1.0
+x large,GestiÃ³n de LACNIC,Chile,America del Sur,6.0
+x large,GestiÃ³n de LACNIC,Ecuador,America del Sur,3.0
+x large,GestiÃ³n de LACNIC,Venezuela,America del Sur,2.0
+x large,GestiÃ³n de LACNIC,Peru,America del Sur,2.0
+x large,GestiÃ³n de LACNIC,Paraguay,America del Sur,1.0
+x large,GestiÃ³n de LACNIC,Bolivia,America del Sur,1.0
+x large,GestiÃ³n de LACNIC,Todo,America del Sur,22.0
+x large,GestiÃ³n de los NIRs,Brasil,America del Sur,6.0
+x large,GestiÃ³n de los NIRs,Todo,America del Sur,6.0
+x large,GestiÃ³n de LACNIC,Republica Dominicana,Caribe,2.0
+x large,GestiÃ³n de LACNIC,Trinidad y Tobago,Caribe,2.0
+x large,GestiÃ³n de LACNIC,Todo,Caribe,4.0
+x large,GestiÃ³n de LACNIC,Todo,Todo,30.0
+x large,GestiÃ³n de los NIRs,Todo,Todo,13.0
+x large,Todo,Todo,Todo,43.0
+2x large a,GestiÃ³n de LACNIC,Costa Rica,America Central,1.0
+2x large a,GestiÃ³n de LACNIC,Todo,America Central,1.0
+2x large a,GestiÃ³n de los NIRs,Mexico,America del Norte,1.0
+2x large a,GestiÃ³n de los NIRs,Todo,America del Norte,1.0
+2x large a,GestiÃ³n de LACNIC,Colombia,America del Sur,1.0
+2x large a,GestiÃ³n de LACNIC,Chile,America del Sur,3.0
+2x large a,GestiÃ³n de LACNIC,Venezuela,America del Sur,1.0
+2x large a,GestiÃ³n de LACNIC,Peru,America del Sur,1.0
+2x large a,GestiÃ³n de LACNIC,Todo,America del Sur,6.0
+2x large a,GestiÃ³n de los NIRs,Brasil,America del Sur,2.0
+2x large a,GestiÃ³n de los NIRs,Todo,America del Sur,2.0
+2x large a,GestiÃ³n de LACNIC,Todo,Todo,7.0
+2x large a,GestiÃ³n de los NIRs,Todo,Todo,3.0
+2x large a,Todo,Todo,Todo,10.0
+2x large b,GestiÃ³n de los NIRs,Mexico,America del Norte,1.0
+2x large b,GestiÃ³n de los NIRs,Todo,America del Norte,1.0
+2x large b,GestiÃ³n de LACNIC,Colombia,America del Sur,3.0
+2x large b,GestiÃ³n de LACNIC,Uruguay,America del Sur,1.0
+2x large b,GestiÃ³n de LACNIC,Todo,America del Sur,4.0
+2x large b,GestiÃ³n de LACNIC,Todo,Todo,4.0
+2x large b,GestiÃ³n de los NIRs,Todo,Todo,1.0
+2x large b,Todo,Todo,Todo,5.0
+3 x large a,GestiÃ³n de LACNIC,Colombia,America del Sur,1.0
+3 x large a,GestiÃ³n de LACNIC,Todo,America del Sur,1.0
+3 x large a,GestiÃ³n de los NIRs,Brasil,America del Sur,1.0
+3 x large a,GestiÃ³n de los NIRs,Todo,America del Sur,1.0
+3 x large a,GestiÃ³n de LACNIC,Todo,Todo,1.0
+3 x large a,GestiÃ³n de los NIRs,Todo,Todo,1.0
+3 x large a,Todo,Todo,Todo,2.0
+3 x large b,GestiÃ³n de LACNIC,Argentina,America del Sur,1.0
+3 x large b,GestiÃ³n de LACNIC,Venezuela,America del Sur,1.0
+3 x large b,GestiÃ³n de LACNIC,Todo,America del Sur,2.0
+3 x large b,GestiÃ³n de LACNIC,Todo,Todo,2.0
+3 x large b,Todo,Todo,Todo,2.0
+4x large a,GestiÃ³n de los NIRs,Brasil,America del Sur,2.0
+4x large a,GestiÃ³n de los NIRs,Todo,America del Sur,2.0
+4x large a,GestiÃ³n de los NIRs,Todo,Todo,2.0
+4x large a,Todo,Todo,Todo,2.0
+5x large c,GestiÃ³n de los NIRs,Brasil,America del Sur,1.0
+5x large c,GestiÃ³n de los NIRs,Todo,America del Sur,1.0
+5x large c,GestiÃ³n de los NIRs,Todo,Todo,1.0
+5x large c,Todo,Todo,Todo,1.0
+5x large h,GestiÃ³n de LACNIC,Argentina,America del Sur,1.0
+5x large h,GestiÃ³n de LACNIC,Todo,America del Sur,1.0
+5x large h,GestiÃ³n de LACNIC,Todo,Todo,1.0
+5x large h,Todo,Todo,Todo,1.0
+miembro adherente,GestiÃ³n de LACNIC,Estados Unidos,America del Norte,1.0
+miembro adherente,GestiÃ³n de LACNIC,Todo,America del Norte,1.0
+miembro adherente,GestiÃ³n de LACNIC,Peru,America del Sur,2.0
+miembro adherente,GestiÃ³n de LACNIC,FK,America del Sur,1.0
+miembro adherente,GestiÃ³n de LACNIC,Todo,America del Sur,3.0
+miembro adherente,GestiÃ³n de los NIRs,Brasil,America del Sur,2.0
+miembro adherente,GestiÃ³n de los NIRs,Todo,America del Sur,2.0
+miembro adherente,GestiÃ³n de LACNIC,Curazao,Caribe,1.0
+miembro adherente,GestiÃ³n de LACNIC,Cuba,Caribe,1.0
+miembro adherente,GestiÃ³n de LACNIC,Todo,Caribe,2.0
+miembro adherente,GestiÃ³n de LACNIC,Todo,Todo,6.0
+miembro adherente,GestiÃ³n de los NIRs,Todo,Todo,2.0
+miembro adherente,Todo,Todo,Todo,8.0
+miembro fundador,GestiÃ³n de los NIRs,Mexico,America del Norte,1.0
+miembro fundador,GestiÃ³n de los NIRs,Todo,America del Norte,1.0
+miembro fundador,GestiÃ³n de LACNIC,Uruguay,America del Sur,3.0
+miembro fundador,GestiÃ³n de LACNIC,Todo,America del Sur,3.0
+miembro fundador,GestiÃ³n de los NIRs,Brasil,America del Sur,1.0
+miembro fundador,GestiÃ³n de los NIRs,Todo,America del Sur,1.0
+miembro fundador,GestiÃ³n de LACNIC,Todo,Todo,3.0
+miembro fundador,GestiÃ³n de los NIRs,Todo,Todo,2.0
+miembro fundador,Todo,Todo,Todo,5.0
+end user a,GestiÃ³n de LACNIC,Honduras,America Central,15.0
+end user a,GestiÃ³n de LACNIC,Costa Rica,America Central,20.0
+end user a,GestiÃ³n de LACNIC,Panama,America Central,22.0
+end user a,GestiÃ³n de LACNIC,Guatemala,America Central,10.0
+end user a,GestiÃ³n de LACNIC,El Salvador,America Central,12.0
+end user a,GestiÃ³n de LACNIC,Nicaragua,America Central,8.0
+end user a,GestiÃ³n de LACNIC,Todo,America Central,87.0
+end user a,GestiÃ³n de los NIRs,Mexico,America del Norte,100.0
+end user a,GestiÃ³n de los NIRs,Todo,America del Norte,100.0
+end user a,GestiÃ³n de LACNIC,Argentina,America del Sur,140.0
+end user a,GestiÃ³n de LACNIC,Colombia,America del Sur,296.0
+end user a,GestiÃ³n de LACNIC,Chile,America del Sur,57.0
+end user a,GestiÃ³n de LACNIC,Ecuador,America del Sur,35.0
+end user a,GestiÃ³n de LACNIC,Venezuela,America del Sur,22.0
+end user a,GestiÃ³n de LACNIC,Peru,America del Sur,7.0
+end user a,GestiÃ³n de LACNIC,Paraguay,America del Sur,16.0
+end user a,GestiÃ³n de LACNIC,Bolivia,America del Sur,23.0
+end user a,GestiÃ³n de LACNIC,Uruguay,America del Sur,7.0
+end user a,GestiÃ³n de LACNIC,Todo,America del Sur,603.0
+end user a,GestiÃ³n de los NIRs,Brasil,America del Sur,628.0
+end user a,GestiÃ³n de los NIRs,Todo,America del Sur,628.0
+end user a,GestiÃ³n de LACNIC,Republica Dominicana,Caribe,11.0
+end user a,GestiÃ³n de LACNIC,Curazao,Caribe,6.0
+end user a,GestiÃ³n de LACNIC,Trinidad y Tobago,Caribe,2.0
+end user a,GestiÃ³n de LACNIC,Haiti,Caribe,5.0
+end user a,GestiÃ³n de LACNIC,Guyana,Caribe,1.0
+end user a,GestiÃ³n de LACNIC,Cuba,Caribe,3.0
+end user a,GestiÃ³n de LACNIC,San Martin,Caribe,1.0
+end user a,GestiÃ³n de LACNIC,Suriname,Caribe,1.0
+end user a,GestiÃ³n de LACNIC,Aruba,Caribe,1.0
+end user a,GestiÃ³n de LACNIC,Todo,Caribe,31.0
+end user a,GestiÃ³n de LACNIC,Todo,Todo,721.0
+end user a,GestiÃ³n de los NIRs,Todo,Todo,728.0
+end user a,Todo,Todo,Todo,1.449
+end user b,GestiÃ³n de los NIRs,Mexico,America del Norte,1.0
+end user b,GestiÃ³n de los NIRs,Todo,America del Norte,1.0
+end user b,GestiÃ³n de LACNIC,Colombia,America del Sur,1.0
+end user b,GestiÃ³n de LACNIC,Chile,America del Sur,1.0
+end user b,GestiÃ³n de LACNIC,Venezuela,America del Sur,1.0
+end user b,GestiÃ³n de LACNIC,Todo,America del Sur,3.0
+end user b,GestiÃ³n de los NIRs,Brasil,America del Sur,9.0
+end user b,GestiÃ³n de los NIRs,Todo,America del Sur,9.0
+end user b,GestiÃ³n de LACNIC,Todo,Todo,3.0
+end user b,GestiÃ³n de los NIRs,Todo,Todo,10.0
+end user b,Todo,Todo,Todo,13.0
+Todo,GestiÃ³n de LACNIC,Honduras,America Central,100.0
+Todo,GestiÃ³n de LACNIC,Costa Rica,America Central,96.0
+Todo,GestiÃ³n de LACNIC,Panama,America Central,75.0
+Todo,GestiÃ³n de LACNIC,Guatemala,America Central,61.0
+Todo,GestiÃ³n de LACNIC,El Salvador,America Central,46.0
+Todo,GestiÃ³n de LACNIC,Nicaragua,America Central,29.0
+Todo,GestiÃ³n de LACNIC,Todo,America Central,407.0
+Todo,GestiÃ³n de LACNIC,Estados Unidos,America del Norte,3.0
+Todo,GestiÃ³n de LACNIC,Todo,America del Norte,3.0
+Todo,GestiÃ³n de los NIRs,Mexico,America del Norte,394.0
+Todo,GestiÃ³n de los NIRs,Todo,America del Norte,394.0
+Todo,GestiÃ³n de LACNIC,Argentina,America del Sur,1.106
+Todo,GestiÃ³n de LACNIC,Colombia,America del Sur,497.0
+Todo,GestiÃ³n de LACNIC,Chile,America del Sur,311.0
+Todo,GestiÃ³n de LACNIC,Ecuador,America del Sur,222.0
+Todo,GestiÃ³n de LACNIC,Venezuela,America del Sur,151.0
+Todo,GestiÃ³n de LACNIC,Peru,America del Sur,131.0
+Todo,GestiÃ³n de LACNIC,Paraguay,America del Sur,89.0
+Todo,GestiÃ³n de LACNIC,Bolivia,America del Sur,54.0
+Todo,GestiÃ³n de LACNIC,Uruguay,America del Sur,22.0
+Todo,GestiÃ³n de LACNIC,FK,America del Sur,1.0
+Todo,GestiÃ³n de LACNIC,Todo,America del Sur,2.584
+Todo,GestiÃ³n de los NIRs,Brasil,America del Sur,8.766
+Todo,GestiÃ³n de los NIRs,Todo,America del Sur,8.766
+Todo,GestiÃ³n de LACNIC,Republica Dominicana,Caribe,123.0
+Todo,GestiÃ³n de LACNIC,Belice,Caribe,28.0
+Todo,GestiÃ³n de LACNIC,Curazao,Caribe,20.0
+Todo,GestiÃ³n de LACNIC,Trinidad y Tobago,Caribe,14.0
+Todo,GestiÃ³n de LACNIC,Haiti,Caribe,11.0
+Todo,GestiÃ³n de LACNIC,Guyana,Caribe,9.0
+Todo,GestiÃ³n de LACNIC,Cuba,Caribe,8.0
+Todo,GestiÃ³n de LACNIC,San Martin,Caribe,7.0
+Todo,GestiÃ³n de LACNIC,Guyana Francesa,Caribe,6.0
+Todo,GestiÃ³n de LACNIC,Bonaire,Caribe,5.0
+Todo,GestiÃ³n de LACNIC,Suriname,Caribe,5.0
+Todo,GestiÃ³n de LACNIC,Aruba,Caribe,3.0
+Todo,GestiÃ³n de LACNIC,Todo,Caribe,239.0
+Todo,GestiÃ³n de LACNIC,Todo,Todo,3.233
+Todo,GestiÃ³n de los NIRs,Todo,Todo,9.16
+Todo,Todo,Todo,Todo,12.393
