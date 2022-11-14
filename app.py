@@ -13,115 +13,17 @@ import json
 from ripe.atlas.cousteau import ProbeRequest
 from datetime import datetime, timedelta, date
 import ipaddress
+from plotly.subplots import make_subplots
 
-pais_categoria =  pd.read_csv('https://opendata.labs.lacnic.net/solicitudes/miembros_pais_categoria.csv', usecols=[0, 1, 2, 3, 4], header=0, names=['categoria','gestion','pais','region', 'cantidad'],
-                            encoding = "ISO-8859-1")
-asignaciones = pd.read_csv('https://ftp.lacnic.net/pub/stats/lacnic/delegated-lacnic-extended-latest', sep='|', skiprows= 4,names=['rir','pais','tipo','recurso','cantidad','fecha','estado','orgid'])
-asignaciones = asignaciones[asignaciones["estado"].isin(["allocated", "assigned"])]
-asignaciones["fecha"] = asignaciones.apply(lambda x: int(str(x.fecha)[0:4]), axis=1)
-asignaciones = asignaciones[['pais','fecha','tipo','cantidad']].groupby(by=['pais','fecha','tipo']).count()
-asignaciones = asignaciones.reset_index()
-as_clasif = pd.read_csv('https://ix.labs.lacnic.net/20220801/country-summary-20220801.csv')
-as_clasif = as_clasif[['country','total_origin_asns','total_transit_asns','total_upstream_asns']]
-ixps = pd.read_csv('https://ix.labs.lacnic.net/20220801/ixp-summary-20220801.csv')
-country_stats = pd.read_csv('https://ix.labs.lacnic.net/20220801/country-routing-stats-20220801.csv')
-as_path_length = country_stats[['country','path_length_mean']]
-anunciados = country_stats[['country','total_prefix_count','ipv4_prefix_count','ipv6_prefix_count']]
-root_servers = requests.get("https://rsstats.labs.lacnic.net/graficos/promedios-1656633600.json").content
-datos_root_servers = json.loads(root_servers)
-servidores = ['A','B','C','D','E','F','G','H','I','J','K','L','M']
-dict_dns = {}
-dict_dns['servidor'], dict_dns['anio'], dict_dns['AR'], dict_dns['BB'], dict_dns['BO'], dict_dns['BQ'], dict_dns['BR'], dict_dns['BZ'], dict_dns['CL'], dict_dns['CO'], dict_dns['CR'], dict_dns['CU'], dict_dns['CW'], dict_dns['DM'], dict_dns['DO'], dict_dns['EC'], dict_dns['GF'], dict_dns['GP'], dict_dns['GT'], dict_dns['GY'], dict_dns['HN'], dict_dns['HT'], dict_dns['JM'], dict_dns['KY'], dict_dns['LC'], dict_dns['MQ'], dict_dns['MX'], dict_dns['NI'], dict_dns['PA'], dict_dns['PE'], dict_dns['PR'], dict_dns['PY'], dict_dns['SR'], dict_dns['SV'], dict_dns['TT'], dict_dns['UY'], dict_dns['VC'], dict_dns['VE'], dict_dns['VI'] = [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []
-for s in servidores:
-    for i in range(0,11):
-        dict_dns['servidor'].append(s)
-        dict_dns['anio'].append(datos_root_servers[s]['rows'][i]['c'][0]['v'])
-        dict_dns['AR'].append(datos_root_servers[s]['rows'][i]['c'][1]['v'])
-        dict_dns['BB'].append(datos_root_servers[s]['rows'][i]['c'][2]['v'])
-        dict_dns['BO'].append(datos_root_servers[s]['rows'][i]['c'][3]['v'])
-        dict_dns['BQ'].append(datos_root_servers[s]['rows'][i]['c'][4]['v'])
-        dict_dns['BR'].append(datos_root_servers[s]['rows'][i]['c'][5]['v'])
-        dict_dns['BZ'].append(datos_root_servers[s]['rows'][i]['c'][6]['v'])
-        dict_dns['CL'].append(datos_root_servers[s]['rows'][i]['c'][7]['v'])
-        dict_dns['CO'].append(datos_root_servers[s]['rows'][i]['c'][8]['v'])
-        dict_dns['CR'].append(datos_root_servers[s]['rows'][i]['c'][9]['v'])
-        dict_dns['CU'].append(datos_root_servers[s]['rows'][i]['c'][10]['v'])
-        dict_dns['CW'].append(datos_root_servers[s]['rows'][i]['c'][11]['v'])
-        dict_dns['DM'].append(datos_root_servers[s]['rows'][i]['c'][12]['v'])
-        dict_dns['DO'].append(datos_root_servers[s]['rows'][i]['c'][13]['v'])
-        dict_dns['EC'].append(datos_root_servers[s]['rows'][i]['c'][14]['v'])
-        dict_dns['GF'].append(datos_root_servers[s]['rows'][i]['c'][15]['v'])
-        dict_dns['GP'].append(datos_root_servers[s]['rows'][i]['c'][16]['v'])
-        dict_dns['GT'].append(datos_root_servers[s]['rows'][i]['c'][17]['v'])
-        dict_dns['GY'].append(datos_root_servers[s]['rows'][i]['c'][18]['v'])
-        dict_dns['HN'].append(datos_root_servers[s]['rows'][i]['c'][19]['v'])
-        dict_dns['HT'].append(datos_root_servers[s]['rows'][i]['c'][20]['v'])
-        dict_dns['JM'].append(datos_root_servers[s]['rows'][i]['c'][21]['v'])
-        dict_dns['KY'].append(datos_root_servers[s]['rows'][i]['c'][22]['v'])
-        dict_dns['LC'].append(datos_root_servers[s]['rows'][i]['c'][23]['v'])
-        dict_dns['MQ'].append(datos_root_servers[s]['rows'][i]['c'][24]['v'])
-        dict_dns['MX'].append(datos_root_servers[s]['rows'][i]['c'][25]['v'])
-        dict_dns['NI'].append(datos_root_servers[s]['rows'][i]['c'][26]['v'])
-        dict_dns['PA'].append(datos_root_servers[s]['rows'][i]['c'][27]['v'])
-        dict_dns['PE'].append(datos_root_servers[s]['rows'][i]['c'][28]['v'])
-        dict_dns['PR'].append(datos_root_servers[s]['rows'][i]['c'][29]['v'])
-        dict_dns['PY'].append(datos_root_servers[s]['rows'][i]['c'][30]['v'])
-        dict_dns['SR'].append(datos_root_servers[s]['rows'][i]['c'][31]['v'])
-        dict_dns['SV'].append(datos_root_servers[s]['rows'][i]['c'][32]['v'])
-        dict_dns['TT'].append(datos_root_servers[s]['rows'][i]['c'][33]['v'])
-        dict_dns['UY'].append(datos_root_servers[s]['rows'][i]['c'][34]['v'])
-        dict_dns['VC'].append(datos_root_servers[s]['rows'][i]['c'][35]['v'])
-        dict_dns['VE'].append(datos_root_servers[s]['rows'][i]['c'][36]['v'])
-        dict_dns['VI'].append(datos_root_servers[s]['rows'][i]['c'][37]['v'])
-rsstat = pd.DataFrame()
-rsstat = rsstat.from_dict(dict_dns)
-file = open("lactld-promedios-1657728961.json")
-lactld = file.read() #requests.get("https://nsstats.labs.lacnic.net/datos/lactld-promedios-1657728961.json").content
-datos_lactld = json.loads(lactld)
-dict_dns = {}
-dict_dns['anio'], dict_dns['AR'], dict_dns['BB'], dict_dns['BO'], dict_dns['BQ'], dict_dns['BR'], dict_dns['BZ'], dict_dns['CL'], dict_dns['CO'], dict_dns['CR'], dict_dns['CU'], dict_dns['CW'], dict_dns['DM'], dict_dns['DO'], dict_dns['EC'], dict_dns['GF'], dict_dns['GP'], dict_dns['GT'], dict_dns['GY'], dict_dns['HN'], dict_dns['HT'], dict_dns['JM'], dict_dns['KY'], dict_dns['LC'], dict_dns['MQ'], dict_dns['MX'], dict_dns['NI'], dict_dns['PA'], dict_dns['PE'], dict_dns['PR'], dict_dns['PY'], dict_dns['SR'], dict_dns['SV'], dict_dns['TT'], dict_dns['UY'], dict_dns['VC'], dict_dns['VE'], dict_dns['VI'] = [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], [], []
-for i in range(0,14):
-    dict_dns['anio'].append(datos_lactld['LACTLD']['rows'][i]['c'][0]['v'])
-    dict_dns['AR'].append(datos_lactld['LACTLD']['rows'][i]['c'][1]['v'])
-    dict_dns['BB'].append(datos_lactld['LACTLD']['rows'][i]['c'][2]['v'])
-    dict_dns['BO'].append(datos_lactld['LACTLD']['rows'][i]['c'][3]['v'])
-    dict_dns['BQ'].append(datos_lactld['LACTLD']['rows'][i]['c'][4]['v'])
-    dict_dns['BR'].append(datos_lactld['LACTLD']['rows'][i]['c'][5]['v'])
-    dict_dns['BZ'].append(datos_lactld['LACTLD']['rows'][i]['c'][6]['v'])
-    dict_dns['CL'].append(datos_lactld['LACTLD']['rows'][i]['c'][7]['v'])
-    dict_dns['CO'].append(datos_lactld['LACTLD']['rows'][i]['c'][8]['v'])
-    dict_dns['CR'].append(datos_lactld['LACTLD']['rows'][i]['c'][9]['v'])
-    dict_dns['CU'].append(datos_lactld['LACTLD']['rows'][i]['c'][10]['v'])
-    dict_dns['CW'].append(datos_lactld['LACTLD']['rows'][i]['c'][11]['v'])
-    dict_dns['DM'].append(datos_lactld['LACTLD']['rows'][i]['c'][12]['v'])
-    dict_dns['DO'].append(datos_lactld['LACTLD']['rows'][i]['c'][13]['v'])
-    dict_dns['EC'].append(datos_lactld['LACTLD']['rows'][i]['c'][14]['v'])
-    dict_dns['GF'].append(datos_lactld['LACTLD']['rows'][i]['c'][15]['v'])
-    dict_dns['GP'].append(datos_lactld['LACTLD']['rows'][i]['c'][16]['v'])
-    dict_dns['GT'].append(datos_lactld['LACTLD']['rows'][i]['c'][17]['v'])
-    dict_dns['GY'].append(datos_lactld['LACTLD']['rows'][i]['c'][18]['v'])
-    dict_dns['HN'].append(datos_lactld['LACTLD']['rows'][i]['c'][19]['v'])
-    dict_dns['HT'].append(datos_lactld['LACTLD']['rows'][i]['c'][20]['v'])
-    dict_dns['JM'].append(datos_lactld['LACTLD']['rows'][i]['c'][21]['v'])
-    dict_dns['KY'].append(datos_lactld['LACTLD']['rows'][i]['c'][22]['v'])
-    dict_dns['LC'].append(datos_lactld['LACTLD']['rows'][i]['c'][23]['v'])
-    dict_dns['MQ'].append(datos_lactld['LACTLD']['rows'][i]['c'][24]['v'])
-    dict_dns['MX'].append(datos_lactld['LACTLD']['rows'][i]['c'][25]['v'])
-    dict_dns['NI'].append(datos_lactld['LACTLD']['rows'][i]['c'][26]['v'])
-    dict_dns['PA'].append(datos_lactld['LACTLD']['rows'][i]['c'][27]['v'])
-    dict_dns['PE'].append(datos_lactld['LACTLD']['rows'][i]['c'][28]['v'])
-    dict_dns['PR'].append(datos_lactld['LACTLD']['rows'][i]['c'][29]['v'])
-    dict_dns['PY'].append(datos_lactld['LACTLD']['rows'][i]['c'][30]['v'])
-    dict_dns['SR'].append(datos_lactld['LACTLD']['rows'][i]['c'][31]['v'])
-    dict_dns['SV'].append(datos_lactld['LACTLD']['rows'][i]['c'][32]['v'])
-    dict_dns['TT'].append(datos_lactld['LACTLD']['rows'][i]['c'][33]['v'])
-    dict_dns['UY'].append(datos_lactld['LACTLD']['rows'][i]['c'][34]['v'])
-    dict_dns['VC'].append(datos_lactld['LACTLD']['rows'][i]['c'][35]['v'])
-    dict_dns['VE'].append(datos_lactld['LACTLD']['rows'][i]['c'][36]['v'])
-    dict_dns['VI'].append(datos_lactld['LACTLD']['rows'][i]['c'][37]['v'])
-nsstat = pd.DataFrame()
-nsstat = nsstat.from_dict(dict_dns)
-
+pais_categoria =  pd.read_csv("pais_categoria.csv")
+asignaciones = pd.read_csv("asignaciones.csv")
+as_clasif = pd.read_csv("as_clasif.csv")
+ixps = pd.read_csv("ixps.csv")
+country_stats = pd.read_csv("country_stats.csv")
+as_path_length = pd.read_csv("as_path_length.csv")
+anunciados = pd.read_csv("anunciados.csv")
+rsstat = pd.read_csv("rsstat.csv")
+nsstat = pd.read_csv("nsstat.csv")
 country_list = list(pais_categoria["pais"].unique())
 def convert_country(country):
     if country == "Argentina":
@@ -184,7 +86,6 @@ def convert_country(country):
         return "MF"
     if country == "Curazao":
         return "CW"
-
 def paises_vecinos(country):
     if country == "Argentina":
         return ['AR','BR','UY','CL','PY','BO']
@@ -246,81 +147,9 @@ def paises_vecinos(country):
         return ["MF","DO"]
     if country == "Curazao":
         return ["BQ","CW","AW"]
-
-#DNSSEC Validation
-file = open("dnssec-datos-latest.json")
-datos = file.read()
-file.close()
-datos_json = json.loads(datos)
-fecha = []
-pais = []
-validacion = []
-numasn = []
-for d in datos_json['DNSSEC']:
-    for p in datos_json['DNSSEC'][d]:
-        fecha.append(d.replace(" ", ""))
-        pais.append(p)
-        validacion.append(datos_json['DNSSEC'][d][p]['validacion'])
-        numasn.append(datos_json['DNSSEC'][d][p]['numasn'])
-
-dnssec_dict = {"fecha": fecha, "pais": pais, "validacion": validacion, "numasn": numasn}
-dnssec = pd.DataFrame(dnssec_dict)
-dnssec['validacion'] = dnssec['validacion'].astype('float64')
-
-##Atlas
-paises_lac = ['AR','AW','BO','BQ','BR','BZ','CL','CO','CR','CU','CW','DO','EC','GF','GT','GY','HN','HT','MX','NI','PA','PE','PY','SR','SV','SX','TT','UY','VE']
-data = requests.get("https://ihr.iijlab.net/ihr/api/metis/atlas/deployment/").content
-data_json = json.loads(data)
-metric = []
-rank = []
-asn = []
-af = []
-nbsamples = []
-asn_name = []
-cc = []
-for i in data_json['results']:
-    c_code = i['asn_name'].split(",")[1].strip()
-    if c_code in paises_lac:
-        metric.append(str(i['metric']))
-        rank.append(int(i['rank']))
-        asn.append(int(i['asn']))
-        af.append(str(i['af']))
-        nbsamples.append(int(i['nbsamples']))
-        asn_name.append(str(i['asn_name'].split(",")[0]))
-        cc.append(str(c_code))
-deploy_asns = {"rank":rank, "metric":metric, "asn":asn, "af":af, "nbsamples":nbsamples, "asn_name":asn_name, "cc":cc}
-deployment_asns = pd.DataFrame(deploy_asns)
-deployment_asns.drop_duplicates(subset=['asn', 'asn_name', 'cc'], inplace=True)
-info2 = pd.read_csv("searched_data.csv")
-info2 = info2[["ASN","Location (country)", "TOTAL bias (selected)"]]
-deploy_atlas = info2.merge(deployment_asns, how='left', left_on='ASN', right_on='asn')
-
-#Transfers
-datos = requests.get("http://ftp.lacnic.net/pub/stats/lacnic/transfers/transfers_latest.json")
-datos_json = json.loads(datos.content)
-transfers = pd.json_normalize(datos_json['transfers'])
-transfers = transfers[transfers['type'] == 'RESOURCE_TRANSFER']
-def version(row):
-    try:
-        row.ip4nets[0]['transfer_set'][0]['end_address']
-        return 'v4'
-    except:
-        return 'v6'
-transfers['af'] = transfers.apply(lambda row:  version(row), axis=1)
-transfers['start_address'] = transfers.apply(lambda row: row.ip4nets[0]['transfer_set'][0]['start_address'] if row.af == 'v4' else row.ip6nets[0]['transfer_set'][0]['start_address'], axis=1)
-transfers['end_address'] = transfers.apply(lambda row: row.ip4nets[0]['transfer_set'][0]['end_address'] if row.af == 'v4' else row.ip6nets[0]['transfer_set'][0]['end_address'], axis=1)
-def red(row):
-    if row.af == 'v4':
-        return [ipaddr for ipaddr in ipaddress.collapse_addresses(list(ipaddress.summarize_address_range(ipaddress.IPv4Address(row.start_address),ipaddress.IPv4Address(row.end_address))))]
-    else:
-        return [ipaddr for ipaddr in ipaddress.collapse_addresses(list(ipaddress.summarize_address_range(ipaddress.IPv6Address(row.start_address),ipaddress.IPv6Address(row.end_address))))]
-transfers['red'] = transfers.apply(lambda row:  red(row), axis=1)
-transfers['cant_ips'] = transfers.apply(lambda row: str(row.red[0]).split('/')[1] if row.af == 'v6' else 2**(32-int(str(row.red[0]).split('/')[1])), axis=1)
-transfers = transfers.drop(columns=['asns', 'ip4nets', 'ip6nets', 'type'])
-cant_df = transfers[transfers['af']=='v4'].groupby(['source_organization.country_code', 'recipient_organization.country_code'], as_index=False).agg({'start_address':'count', 'cant_ips':'sum'})
-
-
-##IPv6
+dnssec = pd.read_csv("dnssec.csv")
+deploy_atlas = pd.read_csv("deploy_atlas.csv")
+cant_df = pd.read_csv("cant_df.csv")
 file = open("ipv6-report-access.json")
 datos = file.read()
 file.close()
@@ -344,7 +173,7 @@ app.layout = html.Div(children=[
         ),
         dcc.Dropdown(id='input-type',
                      options=[{'label': i, 'value': i} for i in country_list],
-                     value='Uruguay',
+                     value='Argentina',
                      style={'width': '80%', 'padding': '3px', 'font-size': '20px', 'text-align': 'center'}),
     ], style={'display': 'flex'}),
 
@@ -402,6 +231,10 @@ app.layout = html.Div(children=[
                  ])
     ], style={'display': 'flex'}),
 
+    html.Div([
+        html.Div(dcc.Graph(id='resolvers'))
+    ], style={'display': 'flex'}),
+
     html.H2('RIPE Atlas'),
     html.Div([
         html.Div(dcc.Graph(id='atlas_probes')),
@@ -428,6 +261,7 @@ app.layout = html.Div(children=[
     html.H2('Adopcion IPv6'),
     html.Div([
         html.Div(dcc.Graph(id='adoption')),
+        html.Div(dcc.Graph(id='principales_ases')),
         html.Div([html.H4("Fuentes:"),
         html.P(html.A(children='https://stats.labs.lacnic.net/IPv6/opendata/',
               href='https://stats.labs.lacnic.net/IPv6/opendata/',
@@ -486,7 +320,8 @@ def bgp(country):
 @app.callback([Output(component_id='rsstat', component_property='figure'),
                Output(component_id='nsstat', component_property='figure'),
                Output(component_id='dnssec', component_property='figure'),
-               Output(component_id='dnssec2', component_property='figure')],
+               Output(component_id='dnssec2', component_property='figure'),
+               Output(component_id='resolvers', component_property='figure')],
               [Input(component_id='input-type', component_property='value')])
 def dns(country):
     pais = convert_country(country)
@@ -509,7 +344,20 @@ def dns(country):
     temp = dnssec_vecinos[dnssec_vecinos['fecha'] == dnssec['fecha'][len(dnssec['fecha']) - 1]]
     bar_fig = px.bar(temp.sort_values('validacion', ascending=False), x='validacion', y='pais', color='pais', title='Validacion DNSSEC paises vecinos', width=800)
 
-    return [line_fig3,line_fig2, fig, bar_fig]
+    data = json.loads(requests.get("https://stats.labs.apnic.net/rvrs/"+pais+"?hc="+pais+"&hs=0&hf=1").content)
+    dns_resolvers = pd.json_normalize(data['data'])
+    dns_resolvers['same_as'] = dns_resolvers.apply(lambda row: row.rv_rtyp_seen[1] * 100 / row.rv_seen, axis=1)
+    dns_resolvers['google_dns'] = dns_resolvers.apply(lambda row: row.rv_rtyp_seen[11] * 100 / row.rv_seen, axis=1)
+    dns_resolvers['cloudflare'] = dns_resolvers.apply(lambda row: row.rv_rtyp_seen[4] * 100 / row.rv_seen, axis=1)
+    dns_resolvers['open_dns'] = dns_resolvers.apply(lambda row: row.rv_rtyp_seen[17] * 100 / row.rv_seen, axis=1)
+    dns_resolvers['others'] = dns_resolvers.apply(
+        lambda row: 100 - (row.same_as + row.google_dns + row.cloudflare + row.open_dns), axis=1)
+    dns_resolvers = dns_resolvers.round(2)
+    actual = dns_resolvers.loc[len(dns_resolvers) - 1, ['same_as', 'google_dns', 'cloudflare', 'open_dns', 'others']]
+    fig_bar = px.bar(x=actual.values.astype('float64'), y=actual.index, text_auto='.2f')
+    fig_bar.update_traces(textfont_size=12, textangle=0, textposition="outside", cliponaxis=False)
+
+    return [line_fig3,line_fig2, fig, bar_fig, fig_bar]
 
 @app.callback([Output(component_id='atlas_probes', component_property='figure'),
                Output(component_id='deploy_atlas', component_property='figure'),
@@ -559,7 +407,7 @@ def atlas(country):
             rank_df = rank_df.iloc[0:8]
         values_th = ['ASN', 'Holder']
         values_tr = [rank_df.asn, rank_df.asn_name]
-        long = len(rank)
+        long = len(rank_df)
         columnorder = [1, 2]
         columnwidth = [30, 120]
 
@@ -617,7 +465,7 @@ def atlas(country):
         arrangement='snap'
     )])
     # Adding title, size, margin etc (Optional)
-    sankey_fig.update_layout(title_text="RTT promedio desde "+country+" a la region", font_size=12, width=1200, height=700)
+    sankey_fig.update_layout(title_text="RTT promedio desde "+country+" a la region", font_size=12, width=800, height=700)
 
 
     return [fig, tabla_fig,sankey_fig, box_fig ]
@@ -626,20 +474,79 @@ def atlas(country):
               [Input(component_id='input-type', component_property='value')])
 def manrs(country):
     pais = convert_country(country)
-    manrs = pd.read_csv("MANRS_Details_202210_1667568420728.csv")
-    manrs = manrs[manrs["RIR Regions"] == "LACNIC"]
+    manrs = pd.read_csv("manrs.csv")
     manrs_pais = manrs[manrs["Country"] == pais]
-    filtering = float(manrs_pais[["Filtering"]].mean())
-    anti_spoofing = float(manrs_pais[["Anti-spoofing"]].mean())
-    coordination = float(manrs_pais[["Coordination"]].mean())
-    gvi = float(manrs_pais[["Global Validation IRR"]].mean())
-    gvr = float(manrs_pais[["Global Validation RPKI"]].mean())
+    manrs_pais['Anti-spoofing'].fillna(-1, inplace=True)
 
-    bar_fig = px.bar(None, x=['Filtering', 'Anti-spoofing', 'Coordination', 'Global Validation IRR','Global Validation RPKI'], y=[filtering, anti_spoofing, coordination, gvi, gvr], width=1000, title='MANRS readiness')
+    def filtering(row):
+        if row.Filtering >= 0.8:
+            return "ready"
+        elif row.Filtering < 0.6:
+            return "lagging"
+        else:
+            return "aspiring"
+    def coordination(row):
+        if row.Coordination == 1:
+            return "ready"
+        else:
+            return "lagging"
+    def anti_spoofing(row):
+        if row["Anti-spoofing"] > 0.6:
+            return "ready"
+        elif row["Anti-spoofing"] == float(-1):
+            return "no data"
+        elif row["Anti-spoofing"] < 0.6:
+            return "lagging"
+        else:
+            return "aspiring"
+    def gvi(row):
+        if row["Global Validation IRR"] >= 0.9:
+            return "ready"
+        elif row["Global Validation IRR"] < 0.5:
+            return "lagging"
+        else:
+            return "aspiring"
+    def gvr(row):
+        if row["Global Validation RPKI"] >= 0.9:
+            return "ready"
+        elif row["Global Validation RPKI"] < 0.5:
+            return "lagging"
+        else:
+            return "aspiring"
 
-    return [bar_fig]
+    manrs_pais['filtering_clasif'] = manrs_pais.apply(lambda row: filtering(row), axis=1)
+    manrs_pais['antispoofing_clasif'] = manrs_pais.apply(lambda row: anti_spoofing(row), axis=1)
+    manrs_pais['coordination'] = manrs_pais.apply(lambda row: coordination(row), axis=1)
+    manrs_pais['gvi'] = manrs_pais.apply(lambda row: gvi(row), axis=1)
+    manrs_pais['gvr'] = manrs_pais.apply(lambda row: gvr(row), axis=1)
 
-@app.callback([Output(component_id='adoption', component_property='figure')],
+    filtering = manrs_pais.groupby('filtering_clasif', as_index=False)['Filtering'].count()
+    anti_spoofing = manrs_pais.groupby('antispoofing_clasif', as_index=False)['Anti-spoofing'].count()
+    coordination = manrs_pais.groupby('coordination', as_index=False)['Coordination'].count()
+    gvi = manrs_pais.groupby('gvi', as_index=False)['Global Validation IRR'].count()
+    gvr = manrs_pais.groupby('gvr', as_index=False)['Global Validation RPKI'].count()
+
+    fig = make_subplots(rows=1, cols=5, specs=[
+        [{'type': 'domain'}, {'type': 'domain'}, {'type': 'domain'}, {'type': 'domain'}, {'type': 'domain'}]], subplot_titles=("Filtering","Anti-spoofing", "Coordination",'Global Validation IRR','Global Validation RPKI'))
+    fig.add_trace(
+        go.Pie(labels=list(filtering['filtering_clasif']), values=list(filtering['Filtering']), name="Filtering"), 1, 1)
+    fig.add_trace(go.Pie(labels=list(anti_spoofing['antispoofing_clasif']), values=list(anti_spoofing['Anti-spoofing']),
+                         name="Anti-Spoofing"), 1, 2)
+    fig.add_trace(go.Pie(labels=list(coordination['coordination']), values=list(coordination['Coordination']),
+                         name="Coordination"), 1, 3)
+    fig.add_trace(
+        go.Pie(labels=list(gvi['gvi']), values=list(gvi['Global Validation IRR']), name="Global Validation IRR"), 1, 4)
+    fig.add_trace(
+        go.Pie(labels=list(gvr['gvr']), values=list(gvr['Global Validation RPKI']), name="Global Validation RPKI"), 1,
+        5)
+
+    fig.update_traces(hole=.7, hoverinfo="label+percent+name")
+    fig.update_layout(width=1200, height=800, legend_orientation='h')
+
+    return [fig]
+
+@app.callback([Output(component_id='adoption', component_property='figure'),
+               Output(component_id='principales_ases', component_property='figure')],
               [Input(component_id='input-type', component_property='value')])
 def ipv6(country):
     pais = convert_country(country)
@@ -653,9 +560,37 @@ def ipv6(country):
     fig = go.Figure()
     fig.add_trace(go.Scatter(x=ipv6_pais['fecha'], y=ipv6_pais['adopcion'], mode='lines', name=country))
     fig.add_trace(go.Scatter(x=ipv6_region['fecha'], y=ipv6_region['adopcion'],mode='lines', name='Region LAC'))
-    fig.update_layout(width=1200, title='Adopcion IPv6')
+    fig.update_layout(width=1000, title='Adopcion IPv6')
 
-    return [fig]
+    data = requests.get("http://v6data.data.labs.apnic.net/ipv6-measurement/Economies/"+pais+"/"+pais+".asns.json?m=0.01").content
+    data_json = json.loads(data)
+    asns_df = pd.json_normalize(data_json)
+    asns_df = asns_df.round(2)
+    as7_df = asns_df.iloc[0:10]
+
+    headerColor = 'grey'
+    rowEvenColor = 'lightgrey'
+    rowOddColor = 'white'
+
+    tabla_fig = go.Figure(data=
+    [go.Table(
+        columnorder=[1,2,3,4,5,6],
+        columnwidth=[30,80,50,50,50,50],
+        header=dict(values=as7_df[['as', 'as-descr', 'autnum','v6capable', 'v6preferred', 'samples']].columns,
+                    line_color='darkslategray',
+                    fill_color=headerColor,
+                    align=['left', 'center'],
+                    font=dict(color='white', size=12)),
+        cells=dict(
+            values= [as7_df['as'], as7_df['as-descr'], as7_df['autnum'], as7_df['v6capable'], as7_df['v6preferred'], as7_df['samples']],
+            line_color='darkslategray',
+            fill_color=[[rowOddColor, rowEvenColor] * len(as7_df)],
+            align=['left', 'center']
+        ))
+    ])
+    tabla_fig.update_layout(title_text='Adopción IPv6 de los principales ASNs', width=1000, height=600)
+
+    return [fig, tabla_fig]
 
 @app.callback([Output(component_id='cant_transf', component_property='figure'),
                Output(component_id='cant_ipsv4', component_property='figure')],
@@ -665,6 +600,7 @@ def transfers(country):
     df_1 = cant_df[cant_df['source_organization.country_code'] == pais]
     df_2 = cant_df[cant_df['recipient_organization.country_code'] == pais]
     result = pd.concat([df_1, df_2])
+    result.drop_duplicates(inplace=True)
     names = list(result['source_organization.country_code'].unique())+list(result['recipient_organization.country_code'].unique())
     all_numerics_src = {}
     j = 0
