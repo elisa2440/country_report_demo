@@ -459,13 +459,13 @@ def atlas(country):
     tr_pais.rtts = tr_pais.rtts.apply(literal_eval)
     tr_pais['ping_dest'] = tr_pais.apply(lambda x: x.rtts[-1], axis=1)
     ping_df = tr_pais[["cc_dest", "ping_dest"]].groupby("cc_dest", as_index=False).mean()
-    cc_origin = ['CO',] * len(ping_df)
+    cc_origin = [pais,] * len(ping_df)
     ping_df['cc_orig'] = cc_origin
     names = list(ping_df['cc_orig'].unique()) + list(ping_df['cc_dest'].unique())
     all_colors = {}
     all_colors_links = {}
     for i in names:
-        if i == 'CO':
+        if i == pais:
             all_colors[i] = 'rgba(255, 177, 41, 1)'
             all_colors_links[i] = 'rgba(255, 177, 41, 0.6)'
         else:
