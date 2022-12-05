@@ -14,6 +14,7 @@ from ripe.atlas.cousteau import ProbeRequest
 from datetime import datetime, timedelta, date
 import ipaddress
 from plotly.subplots import make_subplots
+from ast import literal_eval
 
 pais_categoria =  pd.read_csv("pais_categoria.csv")
 asignaciones = pd.read_csv("asignaciones.csv")
