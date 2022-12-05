@@ -238,7 +238,7 @@ app.layout = html.Div(children=[
     html.H2('RIPE Atlas'),
     html.Div([
         html.Div(dcc.Graph(id='atlas_probes')),
-        html.Div(style="width: 200px, background-color: blue"),
+        #html.Div(style="width: 200px, background-color: blue"),
         #html.Div([html.P('Recomendacion de Redes para instalar sondas'),
         html.Div(dcc.Graph(id="deploy_atlas")),
         html.Div(dcc.Graph(id='pings')),
