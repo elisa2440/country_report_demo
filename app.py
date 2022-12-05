@@ -429,12 +429,34 @@ def atlas(country):
     ])
     tabla_fig.update_layout(title_text='Recomendacion de Redes para instalar sondas', width=500)
 
-    tr_pais = pd.read_csv("tr_src_colombia.csv")
+    fig_none = go.Figure()
+    fig_none.update_layout(
+        title_text="RTT/Hops promedio desde " + country + " a la region",
+        xaxis={"visible": False},
+        yaxis={"visible": False},
+        annotations=[
+            {
+                "text": "No data available",
+                "xref": "paper",
+                "yref": "paper",
+                "showarrow": False,
+                "font": {
+                    "size": 28
+                }
+            }
+        ]
+    )
+    try:
+        tr_pais = pd.read_csv("tr_"+pais+".csv")
+    except:
+        return [fig, tabla_fig, fig_none, fig_none]
     tr_pais.drop_duplicates(['src', 'dest'], inplace=True)
     tr_pais = tr_pais[tr_pais['hops'] != 255]
 
     box_fig = px.box(tr_pais, x="cc_dest", y="hops", height=600, width=1200, title="Cantidad de Hops promedio desde "+country+" a la region")
 
+    tr_pais.rtts = tr_pais.rtts.apply(literal_eval)
+    tr_pais['ping_dest'] = tr_pais.apply(lambda x: x.rtts[-1], axis=1)
     ping_df = tr_pais[["cc_dest", "ping_dest"]].groupby("cc_dest", as_index=False).mean()
     cc_origin = ['CO',] * len(ping_df)
     ping_df['cc_orig'] = cc_origin
